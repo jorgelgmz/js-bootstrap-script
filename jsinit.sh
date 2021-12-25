@@ -47,7 +47,7 @@ cat << EOF > package.json
   "description": "${PROJECT_DESCRIPTION}",
   "private": true,
   "author": "${AUTHOR}",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -107,7 +107,7 @@ cat << EOF > package.json
     "start": "node ${ENTRY_POINT}"
   },
   "author": "${AUTHOR}",
-  "license": "ISC"
+  "license": "MIT"
 }
 EOF
 npm install --save-dev \
