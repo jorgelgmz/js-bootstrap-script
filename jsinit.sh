@@ -48,6 +48,9 @@ cat << EOF > package.json
   "private": true,
   "author": "${AUTHOR}",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -103,6 +106,9 @@ cat << EOF > package.json
   "version": "1.0.0",
   "description": "${PROJECT_DESCRIPTION}",
   "main": "${ENTRY_POINT}",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "start": "node ${ENTRY_POINT}"
   },
@@ -313,16 +319,6 @@ cat << EOF > .eslintrc.json
     "prototype-pollution-security-rules/detect-merge-objects": "warn",
     "prototype-pollution-security-rules/detect-merge-options": "warn",
     "prototype-pollution-security-rules/detect-deep-extend": "warn",
-    /** Node.js rules **/
-    "node/exports-style": ["error", "module.exports"],
-    "node/file-extension-in-import": ["error", "always"],
-    "node/prefer-global/buffer": ["error", "always"],
-    "node/prefer-global/console": ["error", "always"],
-    "node/prefer-global/process": ["error", "always"],
-    "node/prefer-global/url-search-params": ["error", "always"],
-    "node/prefer-global/url": ["error", "always"],
-    "node/prefer-promises/dns": "error",
-    "node/prefer-promises/fs": "error"
   }
 }
 EOF
