@@ -109,6 +109,7 @@ cat << EOF > package.json
   "engines": {
     "node": ">=16.0.0"
   },
+  "type": "module",
   "scripts": {
     "start": "node ${ENTRY_POINT}"
   },
