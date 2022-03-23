@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 : '
 =======================================================
 		  Get Project Details
@@ -48,6 +48,10 @@ cat << EOF > package.json
   "private": true,
   "author": "${AUTHOR}",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "${GIT_REPO}"
+  },
   "engines": {
     "node": ">=16.0.0"
   },
@@ -114,7 +118,11 @@ cat << EOF > package.json
     "start": "node ${ENTRY_POINT}"
   },
   "author": "${AUTHOR}",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "${GIT_REPO}"
+  }
 }
 EOF
 npm install --save-dev \
@@ -345,7 +353,6 @@ EOF
 		  Initialize Git and Create .gitignore
 =======================================================
 '
-git init
 touch .gitignore
 cat << EOF > .gitignore
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -376,3 +383,10 @@ yarn-error.log*
 #Snyk
 .dccache
 EOF
+git init
+if [[ ${GIT_REPO} != "" ]] ; then
+git remote add origin ${GIT_REPO}
+fi
+git branch -M main
+git add --all
+git commit -m "first commit"
